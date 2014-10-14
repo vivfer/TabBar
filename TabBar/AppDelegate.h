@@ -10,6 +10,11 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+    {
+        UITabBarController* tabBarViewController;
+    }
+
+
 @property (strong, nonatomic) UIWindow *window;
 
 

@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "FirstViewController.h"
+#import "SecondViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,37 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    tabBarViewController = [[UITabBarController alloc]init];
+    [self.window setRootViewController:tabBarViewController];
+    
+    FirstViewController* first = [[FirstViewController alloc]init];
+    SecondViewController* second = [[SecondViewController alloc]init];
+    tabBarViewController.viewControllers = [NSArray arrayWithObjects:first, second, nil];
+    [first release];
+    [second release];
+    
+    
+    
+    
+    
+    UITabBar*tabBar = tabBarViewController.tabBar;
+    UITabBarItem*tabBarItem1 = [tabBar.items objectAtIndex:0];
+    UITabBarItem*tabBarItem2 = [tabBar.items objectAtIndex:1];
+
+    tabBarItem1.title = @"Home";
+    tabBarItem2.title = @"Maps";
+    
+    [tabBarItem1 setImage:[UIImage imageNamed:@"1"]];
+    [tabBarItem2 setImage:[UIImage imageNamed:@"2"]];
+    
+
+    
     return YES;
 }
 
